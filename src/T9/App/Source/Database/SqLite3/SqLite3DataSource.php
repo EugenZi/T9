@@ -46,7 +46,7 @@ class SqLite3DataSource implements SourceInterface {
      */
     public function offsetExists($offset)
     {
-        // TODO: Implement offsetExists() method.
+        return array_key_exists($offset, $this->_dataSource);
     }
 
     /**
@@ -60,7 +60,7 @@ class SqLite3DataSource implements SourceInterface {
      */
     public function offsetGet($offset)
     {
-        // TODO: Implement offsetGet() method.
+        return $this->offsetExists($offset) ? $this->_dataSource[$offset] : null;
     }
 
     /**
@@ -77,7 +77,7 @@ class SqLite3DataSource implements SourceInterface {
      */
     public function offsetSet($offset, $value)
     {
-        // TODO: Implement offsetSet() method.
+        $this->_dataSource[$offset] = $value;
     }
 
     /**
@@ -91,27 +91,26 @@ class SqLite3DataSource implements SourceInterface {
      */
     public function offsetUnset($offset)
     {
-        // TODO: Implement offsetUnset() method.
+        unset($this->_dataSource[$offset]);
     }
 
     public function getData()
     {
-        // TODO: Implement getData() method.
+        return $this->_dataSource;
     }
 
     public function getDataSource()
     {
-        // TODO: Implement getDataSource() method.
+        return $this;
     }
 
     public function filter()
     {
-        // TODO: Implement filter() method.
     }
 
     function setSourceDriver(SourceDriverInterface $sourceDriverInterface)
     {
-        // TODO: Implement setSourceDriver() method.
+        $this->_dataSourceDriver = $sourceDriverInterface->getSource();
     }
 
     /**
@@ -119,6 +118,6 @@ class SqLite3DataSource implements SourceInterface {
      */
     function getSourceDriver()
     {
-        // TODO: Implement getSourceDriver() method.
+        return $this->_dataSourceDriver;
     }
 }
