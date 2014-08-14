@@ -35,7 +35,14 @@ final class SqLite3Driver implements SourceDriverInterface {
 
     private function __construct($path, $table, $column)
     {
-        self::$_pdo   = new \PDO('sqlite:' . $path, null, null, array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_SILENT));
+        self::$_pdo   = new \PDO(
+            'sqlite:' . $path,
+            null,
+            null,
+            array(
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_SILENT
+            )
+        );
         self::$_table  = $table;
         self::$_column = $column;
 
@@ -56,6 +63,6 @@ final class SqLite3Driver implements SourceDriverInterface {
 
     public function getRawSource()
     {
-
+        return self::$_rawSource;
     }
 }
