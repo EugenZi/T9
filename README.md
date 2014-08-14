@@ -20,3 +20,5 @@ If you install composer localy run in project root:
 #####php composer.phar install, 
 if globaly:
 #####composer install.
+
+This commands install project vendors and generate composer PSR-0/PSR-4 class loader!
