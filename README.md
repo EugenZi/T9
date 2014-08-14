@@ -16,4 +16,7 @@ To global install composer you must make composer.phar executable and move them 
 
 ##### sudo mv composer.phar /usr/local/bin/composer
 
-If you install composer localy run- php composer.phar install, if globaly- composer install.
+If you install composer localy run in project root:
+#####php composer.phar install, 
+if globaly:
+#####composer install.
